@@ -54,7 +54,7 @@ sunPos.start('moveSun', {
   radius:0,
   center: {
     x: centerx,
-    y: centery
+    y: centery - 30
   },
   // time in milliseconds for one revolution
   interval: 68700,
