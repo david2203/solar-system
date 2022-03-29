@@ -49,7 +49,7 @@ var jupiterElipse = (function() {
     };
   
   })();
-
+function startJupiterElipse() {
 jupiterElipse.start('moveJupiter', {
   radius:483,
   center: {
@@ -57,7 +57,7 @@ jupiterElipse.start('moveJupiter', {
     y: centery
   },
   // time in milliseconds for one revolution
-  interval: 42700,
+  interval: jupiterInterval / intervalMultiplier,
   // direction = 1 for clockwise, -1 for counterclockwise
   direction: 1,
   // number of times to animate the revolution (-1 for infinite)
@@ -70,3 +70,4 @@ jupiterElipse.start('moveJupiter', {
   updateInterval: 0.00001
  
 });
+}

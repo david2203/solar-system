@@ -11,6 +11,12 @@
     <script src="mars-elipse.js" defer></script>
     <script src="mercury-elipse.js" defer></script>
     <script src="jupiter-elipse.js" defer></script>
+    <script src="start.js" defer></script>
+    <script src="settings.js" defer></script>
+
+
+    <!-- <script src="general-elipse.js" defer></script> -->
+
 
 
     <title>Document</title>
@@ -23,6 +29,13 @@
     <div class="earthEllipse"></div>
     <img id="moveMercury" class="mercury" src="mercury.png" >
     <img id="moveSun" class="sun" src="sun5.png"> 
+    <div class="settingPanel">
+    <label> Planet speed Multiplier</label>
+    <form action="#" onsubmit=changeSpeed() return false>
+        <input type="float" class="planetSpeed"/> 
+        <button type="submit" class="submitSettings"> Send </button>
+    </form>
+    </div>
 </body>
 
 

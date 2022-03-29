@@ -46,6 +46,7 @@ var mercuryElipse = (function() {
   
   })();
 
+  function startMercuryElipse() {
 mercuryElipse.start('moveMercury', {
   radius: 57,
   center: {
@@ -53,7 +54,7 @@ mercuryElipse.start('moveMercury', {
     y: centery
   },
   // time in milliseconds for one revolution
-  interval: 870,
+  interval: mercuryInterval / intervalMultiplier,
   // direction = 1 for clockwise, -1 for counterclockwise
   direction: 1,
   // number of times to animate the revolution (-1 for infinite)
@@ -65,3 +66,4 @@ mercuryElipse.start('moveMercury', {
   // circle should be attempted to be updated
   updateInterval: 0.00001
 });
+}

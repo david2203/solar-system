@@ -1,5 +1,6 @@
-var marsElipse = (function() {
-
+ 
+var genralElipse = (function() {
+    
     function getPosition(settings, ellapsedTime) {
       var angle = getAngle(settings, ellapsedTime);
       return {
@@ -13,10 +14,9 @@ var marsElipse = (function() {
     }
   
     function start(id, settings) {
-    
-      const mars = document.querySelector(".mars");
-  
-      
+      const earth = document.querySelector(".earth");
+
+       
       var el = document.getElementById(id),
         startTime = (new Date()).getTime(),
         width = el.offsetWidth,
@@ -26,8 +26,7 @@ var marsElipse = (function() {
       if (!settings.startPositionRad) settings.startPositionRad = settings.startPositionDeg / 180 * Math.PI;
       el['#rev:tm'] = setInterval(function() {
         var pos = getPosition(settings, (new Date()).getTime() - startTime);
-        
-        mars.style.zIndex = pos.y;
+        earth.style.zIndex = pos.y;
         el.style.left = (pos.x - Math.round(width / 2)) + 'px';
         el.style.top = (pos.y - Math.round(height / 2)) + 'px';
       }, settings.updateInterval);
@@ -50,15 +49,14 @@ var marsElipse = (function() {
   
   })();
 
-  function startMarsElipse() {
-marsElipse.start('moveMars', {
-  radius:141,
+earthElipse.start('moveEarth', {
+  radius: earthRadius,
   center: {
     x: centerx,
     y: centery
   },
   // time in milliseconds for one revolution
-  interval: marsInterval / intervalMultiplier,
+  interval: 3600,
   // direction = 1 for clockwise, -1 for counterclockwise
   direction: 1,
   // number of times to animate the revolution (-1 for infinite)
@@ -69,6 +67,4 @@ marsElipse.start('moveMars', {
   // how often (in milliseconds) the position of the
   // circle should be attempted to be updated
   updateInterval: 0.00001
- 
 });
-  }

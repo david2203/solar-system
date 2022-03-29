@@ -26,6 +26,8 @@ var earthElipse = (function() {
       el['#rev:tm'] = setInterval(function() {
         var pos = getPosition(settings, (new Date()).getTime() - startTime);
         earth.style.zIndex = pos.y;
+        var sizeMultiplier = 300 - (750 - pos.y);
+        earth.style.width = earthWidth * sizeMultiplier + "px";
         el.style.left = (pos.x - Math.round(width / 2)) + 'px';
         el.style.top = (pos.y - Math.round(height / 2)) + 'px';
       }, settings.updateInterval);
@@ -47,7 +49,7 @@ var earthElipse = (function() {
     };
   
   })();
-
+  function startEarthElipse() {
 earthElipse.start('moveEarth', {
   radius: earthRadius,
   center: {
@@ -55,7 +57,7 @@ earthElipse.start('moveEarth', {
     y: centery
   },
   // time in milliseconds for one revolution
-  interval: 3600,
+  interval: earthInterval / intervalMultiplier,
   // direction = 1 for clockwise, -1 for counterclockwise
   direction: 1,
   // number of times to animate the revolution (-1 for infinite)
@@ -67,3 +69,4 @@ earthElipse.start('moveEarth', {
   // circle should be attempted to be updated
   updateInterval: 0.00001
 });
+}
